@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="ruby-libvirt.css" />
+    <link rel="SHORTCUT ICON" href="http://libvirt.org/32favicon.png" />
+    <title>Ruby bindings for libvirt</title>
+    <meta name="description" content="ruby, libvirt, virtualization, virtualization API" />
+  </head>
+  <body>
+    <div id="header">
+      <div id="rubyHeaderLogo"></div>
+      <div id="headerSearch">
+        <form action="search.php" enctype="application/x-www-form-urlencoded" method="get"><div>
+            <input id="query" name="query" type="text" size="12" value="" />
+            <input id="submit" name="submit" type="submit" value="Search" />
+          </div></form>
+      </div>
+    </div>
+    <div id="body">
+      <div id="menu">
+        <ul class="l0">
+	  <li>
+            <div>
+	      <div><span class="active">Ruby</span></div>
+	      <ul class="l1">
+		<li><div><a title="Details of new features and bugs fixed in each release" class="inactive" href="news.html">News</a></div></li>
+		<li><div><a title="Get the latest source releases, binary builds and get access to the source repository" class="inactive" href="downloads.html">Downloads</a></div></li>
+		<li><div><a title="Documentation for application developers" class="inactive" href="documentation.html">Documentation</a></div></li>
+		<li><div><span class="inactive">Contact</span></div></li>
+		<li><div><a title="Miscellaneous links of interest related to libvirt" class="inactive" href="relatedlinks.html">Related Links</a></div></li>
+		<li><div><a title="Libvirt.org Home" class="inactive" href="http://libvirt.org">Libvirt.org</a></div></li>
+	      </ul>
+            </div>
+          </li>
+	</ul>
+      </div>
+      <div id="content">
+        <h3>What is <span class="style1">ruby-libvirt</span>?</h3>
+
+        <p>ruby-libvirt provides <a href="">Ruby</a> bindings for
+          libvirt. With them you can use libvirt directly from your Ruby
+          programs:</p>
+        <pre>
+require 'libvirt'
+
+conn = Libvirt::open("qemu:///system")
+puts conn.capabilities
+
+conn.create_domain_linux(File.read("domain.xml"))
+
+dom = conn.lookup_domain_by_name("mydomain")
+dom.suspend
+dom.resume
+puts dom.xml_desc
+        </pre>
+	<p>Please see
+	the <a href="documentation.html">documentation</a> page for
+	more complete examples.
+        <h4 id="developers">Developers</h4>
+        <p>The sources are available from git. To clone, run</p>
+        <pre>git clone git://libvirt.org/ruby-libvirt.git</pre>
+
+        <p>Please use the <a href="https://www.redhat.com/mailman/listinfo/libvir-list/">libvirt mailing list</a> for questions,
+          comments and patches.
+        </p>
+      </div>
+    </div>
+    <div>
+      <p id="sponsor">Ruby Logo is Copyright (c) 2006, Yukihiro
+      Matsumoto.  Licensed under the terms of the Creative
+      Commons Attribution-ShareAlike 2.5 agreement.</p>
+    </div>
+  </body>
+</html>
